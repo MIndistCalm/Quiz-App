@@ -5,7 +5,7 @@ const quizData = [
         b: '14',
         c: '20',
         d: '26',
-        correct: 'c'
+        correct: 'b'
     },{
         question: 'What my favorite programming language?',
         a: 'Java',
