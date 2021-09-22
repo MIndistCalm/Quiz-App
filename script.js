@@ -48,6 +48,8 @@ const submitBtn = document.getElementById('submit');
 
 
 let currentQuiz = 0;
+let answer = undefined;
+let score = 0;
 
 loadQuiz();
 
@@ -62,10 +64,28 @@ function loadQuiz(){
     d_text.innerText = currentQuizData.d;
 }
 
+function getSelected(){
+    const answersEls = document.querySelectorAll('answer');
+    answersEls.forEach( (answerEl) => {
+        if(answerEl.checked){
+            return answerEl.id;
+        }
+    });
+    return undefined;
+}
+
 submitBtn.addEventListener('click', () => {
-    currentQuiz++;
+    
+
+    const answer = getSelected();
+
+    if(answer && answer === quizData[currentQuiz]){
+            
+        currentQuiz++;
+    }
+
 
     currentQuiz < quizData.length ? loadQuiz() : alert("Congratulation!");
 
-    loadQuiz();
+    // loadQuiz();
 })
